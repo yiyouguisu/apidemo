@@ -1,0 +1,37 @@
+更新用户信息
+---
+tags:
+  - 用户
+
+endpoint: /api/member/update/post
+summary: 更新用户信息
+description: 更新用户信息
+
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      id: update_member_info
+      required:
+        - uid
+        - username
+        - nickname
+        - age
+        - sex
+      properties:
+        uid:
+          type: integer
+          description: 用户ID
+        username:
+          type: string
+          description: 用户名
+        nickname:
+          type: string
+          description: 昵称
+        age:
+          type: integer
+          description: 年龄
+        sex:
+          type: integer
+          description: 性别

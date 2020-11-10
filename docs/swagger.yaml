@@ -1,0 +1,237 @@
+definitions:
+  model.Member:
+    properties:
+      age:
+        type: integer
+      id:
+        type: integer
+      nickname:
+        type: string
+      sex:
+        type: integer
+      username:
+        type: string
+    required:
+    - age
+    - nickname
+    - sex
+    - username
+    type: object
+  model.RedisCommand:
+    properties:
+      arg_list:
+        additionalProperties: true
+        type: object
+      args:
+        type: string
+      method:
+        type: string
+      name:
+        type: string
+    required:
+    - method
+    - name
+    type: object
+  model.RedisCommandList:
+    properties:
+      command_list:
+        items:
+          $ref: '#/definitions/model.RedisCommand'
+        type: array
+    required:
+    - command_list
+    type: object
+  model.Response:
+    properties:
+      code:
+        example: 0
+        type: integer
+      data:
+        type: object
+      message:
+        example: success
+        type: string
+    type: object
+info:
+  contact: {}
+  license: {}
+paths:
+  /api/member/delete/post:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Token
+        in: header
+        name: token
+        type: string
+      - description: 用户名
+        in: header
+        name: x-username
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: 删除会员
+      tags:
+      - 会员
+  /api/member/info/get:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 会员
+        in: body
+        name: member
+        required: true
+        schema:
+          $ref: '#/definitions/model.Member'
+      - description: Token
+        in: header
+        name: token
+        type: string
+      - description: 用户名
+        in: header
+        name: x-username
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: 获取会员详情
+      tags:
+      - 会员
+  /api/member/list/get:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Token
+        in: header
+        name: token
+        type: string
+      - description: 用户名
+        in: header
+        name: x-username
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: 获取所有会员
+      tags:
+      - 会员
+  /api/member/update/post:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 会员
+        in: body
+        name: member
+        required: true
+        schema:
+          $ref: '#/definitions/model.Member'
+      - description: Token
+        in: header
+        name: token
+        type: string
+      - description: 用户名
+        in: header
+        name: x-username
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: 更新会员
+      tags:
+      - 会员
+  /api/member/upload/post:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 会员
+        in: body
+        name: member
+        required: true
+        schema:
+          $ref: '#/definitions/model.Member'
+      - description: Token
+        in: header
+        name: token
+        type: string
+      - description: 用户名
+        in: header
+        name: x-username
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: 上传会员
+      tags:
+      - 会员
+  /api/v6/data/config/test/get:
+    post:
+      produces:
+      - text/plain
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: 测试配置更新
+      tags:
+      - 基础接口
+  /api/v6/data/health/check/get:
+    get:
+      produces:
+      - text/plain
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: 健康检查
+      tags:
+      - 基础接口
+  /api/v6/data/redis_command/post:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 操作命令列表
+        in: body
+        name: command
+        required: true
+        schema:
+          $ref: '#/definitions/model.RedisCommandList'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: Redis操作
+      tags:
+      - 基础接口
+swagger: "2.0"

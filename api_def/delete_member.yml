@@ -1,0 +1,21 @@
+删除用户信息
+---
+tags:
+  - 用户
+
+endpoint: /api/member/delete/post
+summary: 删除用户信息
+description: 删除用户信息
+
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      id: delete_member_info
+      required:
+        - uid
+      properties:
+        uid:
+          type: integer
+          description: 用户ID

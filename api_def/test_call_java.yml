@@ -1,0 +1,8 @@
+测试请求Java
+---
+tags:
+  - 测试
+
+endpoint: /api/v6/data/test_call_java
+summary: 测试请求Java
+description: 测试请求Java

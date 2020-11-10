@@ -1,0 +1,21 @@
+获取单个用户信息
+---
+tags:
+  - 用户
+
+endpoint: /api/member/info/get
+summary: 获取单个用户信息
+description: 获取单个用户信息
+
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      id: get_member_info
+      required:
+        - uid
+      properties:
+        uid:
+          type: integer
+          description: 用户ID

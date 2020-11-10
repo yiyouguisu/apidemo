@@ -1,0 +1,13 @@
+server:
+  host: "0.0.0.0"
+  port: 8090
+redis:
+  host: "127.0.0.1"
+  port: 6379
+log:
+  level: "info"
+  custom_name: "./application.log"
+  access_name: "./access_log.log"
+agollo:
+  appid: "golang_test"
+  config_server_url: "106.54.151.245:8080"

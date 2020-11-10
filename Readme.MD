@@ -1,0 +1,1 @@
+CGO_ENABLED=0 GOOS=linux go build -o ~/go/bin/linux_amd64/api-demo ~/GoProjects/apiDemoProject/main.go

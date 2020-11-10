@@ -1,0 +1,15 @@
+health_check接口
+---
+tags:
+  - health_check接口
+
+endpoint: /api/v6/data/health/check/get
+summary: health_check接口
+description: health_check接口
+
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      id: health_check

@@ -1,0 +1,8 @@
+测试配置热更新
+---
+tags:
+  - 测试
+
+endpoint: /api/v6/data/config/test/get
+summary: 测试配置热更新
+description: 测试配置热更新

@@ -1,0 +1,33 @@
+上传用户信息
+---
+tags:
+  - 用户
+
+endpoint: /api/member/upload/post
+summary: 上传用户信息
+description: 上传用户信息
+
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      id: upload_member_info
+      required:
+        - username
+        - nickname
+        - age
+        - sex
+      properties:
+        username:
+          type: string
+          description: 用户名
+        nickname:
+          type: string
+          description: 昵称
+        age:
+          type: integer
+          description: 年龄
+        sex:
+          type: integer
+          description: 性别
